@@ -1,9 +1,9 @@
-import Category from "@/components/Category";
+// import Category from "@/components/Category";
 
-export default function Navbar() {
-    return (
-        <div className="flex p-4 bg-[#ffffff]">
-            <Category name="Flight" srcName="flight" navigate="flight"/>
-        </div>
-    )
-}
+// export default function Navbar() {
+//     return (
+//         <div className="flex p-4 bg-[#ffffff]">
+//             <Category name="AI Shine" srcName="ai shine" navigate="flight"/>
+//         </div>
+//     )
+// }
