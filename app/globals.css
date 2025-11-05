@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -44,19 +43,16 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-main{
+/* Smooth scrollbar */
+main {
   scrollbar-width: thin;
 }
+
+/* Gradient animations */
 @keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .animate-gradientMove {
@@ -64,35 +60,24 @@ main{
   animation: gradientMove 10s ease infinite;
 }
 
-
-/* Hide scrollbar utility class */
+/* Hide scrollbar */
 .scrollbar-hide {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* WebKit */
+  display: none;
 }
 
 @keyframes gradientFloat {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
 .animate-gradientFloat {
   background-size: 200% 200%;
   animation: gradientFloat 10s ease infinite;
 }
-
-
 
 .animate-infinite-scroll {
   animation-name: infinite-scroll;
@@ -102,9 +87,13 @@ main{
   animation-direction: normal;
 }
 
+/* -----------------------------
+   🌈 THEME VARIABLES (LIGHT/DARK)
+----------------------------- */
+
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.996 0.007 88.5); 
+  --background: oklch(0.996 0.007 88.5);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -178,4 +167,86 @@ main{
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* -----------------------------
+   💬 PROFESSIONAL CHAT STYLING
+----------------------------- */
+
+/* Chat page background — WhatsApp-style doodle */
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #e7e6e2;
+  background-image: url("/aibackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Message bubbles */
+.ai-bubble {
+  background: linear-gradient(90deg, #2563eb, #10b981);
+  color: #fff;
+  border-radius: 1rem 1rem 1rem 0.25rem;
+  padding: 12px 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.user-bubble {
+  background: linear-gradient(90deg, #334155, #1e293b);
+  color: #fff;
+  border-radius: 1rem 1rem 0.25rem 1rem;
+  padding: 12px 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Message timestamp */
+.message-time {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+/* Input area styling
+.input-area {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.input-area textarea {
+  background: white;
+  color: #1e293b;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  flex-grow: 1;
+  resize: none;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.input-area textarea:focus {
+  box-shadow: 0 0 0 2px #2563eb40;
+}
+
+.input-area button {
+  transition: transform 0.2s ease;
+}
+
+.input-area button:hover {
+  transform: scale(1.05);
+} */
+
+/* Keep all chat UI above background */
+main > * {
+  position: relative;
+  z-index: 1;
 }

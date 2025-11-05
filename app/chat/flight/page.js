@@ -183,22 +183,24 @@ async function sendToAI(newMessages) {
       </div>
 
       {/* --- Message Bubble --- */}
-      <div
-        className={`max-w-[80%] px-5 py-3 rounded-2xl text-sm md:text-base shadow-lg transition-all duration-300 ${
-          isUser
-            ? "bg-[#334155]/80 text-white rounded-br-none backdrop-blur-md"
-            : "bg-gradient-to-r from-blue-500 to-green-400 text-white rounded-bl-none shadow-green-300/20"
-        }`}
-      >
-        <ReactMarkdown>{msg.content}</ReactMarkdown>
-        <div
-          className={`text-[10px] mt-1 ${
-            isUser ? "text-right text-gray-300" : "text-left text-gray-200"
-          } opacity-80`}
-        >
-          {time}
-        </div>
-      </div>
+      {/* --- Message Bubble --- */}
+<div
+  className={`max-w-[80%] px-5 py-3 rounded-2xl text-sm md:text-base shadow-lg transition-all duration-300 ${
+    isUser
+      ? "bg-[#334155]/70 text-white rounded-br-none backdrop-blur-md"
+      : "bg-gradient-to-r from-blue-50 to-blue-100 text-gray-800 rounded-bl-none shadow-sm border border-blue-300/40"
+  }`}
+>
+  <ReactMarkdown>{msg.content}</ReactMarkdown>
+  <div
+    className={`text-[10px] mt-1 ${
+      isUser ? "text-right text-gray-300" : "text-left text-gray-500"
+    } opacity-80`}
+  >
+    {time}
+  </div>
+</div>
+
     </div>
   );
 })}
@@ -237,7 +239,7 @@ async function sendToAI(newMessages) {
 
       {/* --- Input Area --- */}
      {/* --- Input Area --- */}
-<div className="bg-[#E8EEF6] border-t border-gray-300 p-4 flex gap-3 items-end flex-shrink-0">
+<div className="bg-[#b5d2f8] border-t border-gray-300 p-4 flex gap-3 items-end flex-shrink-0">
   <textarea
     className="flex-grow bg-white text-gray-800 placeholder:text-gray-500 px-4 py-3 rounded-2xl resize-none min-h-[48px] focus:outline-none focus:ring-2 focus:ring-[#0B3266] transition-all duration-200"
     placeholder="Type your message or use mic..."
